@@ -1704,8 +1704,8 @@ LookupSymbolInModule (CommandInterpreter &interpreter, Stream &strm, Module *mod
                 uint32_t num_matches = 0;
                 if (name_is_regex)
                 {
-                    RegularExpression name_regexp(name);
-                    num_matches = symtab->AppendSymbolIndexesMatchingRegExAndType (name_regexp, 
+                    RegularExpression name_regex(name);
+                    num_matches = symtab->AppendSymbolIndexesMatchingRegExAndType (name_regex,
                                                                                    eSymbolTypeAny,
                                                                                    match_indexes);
                 }

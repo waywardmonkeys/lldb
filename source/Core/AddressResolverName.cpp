@@ -40,7 +40,7 @@ AddressResolverName::AddressResolverName
             Log *log(lldb_private::GetLogIfAllCategoriesSet (LIBLLDB_LOG_BREAKPOINTS));
 
             if (log)
-                log->Warning ("function name regexp: \"%s\" did not compile.", m_func_name.AsCString());
+                log->Warning ("function name regex: \"%s\" did not compile.", m_func_name.AsCString());
         }
     }
 }

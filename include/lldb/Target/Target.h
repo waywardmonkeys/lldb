@@ -668,13 +668,13 @@ public:
                       bool internal,
                       bool request_hardware);
 
-    // Use this to create a function breakpoint by regexp in containingModule/containingSourceFiles, or all modules if it is NULL
+    // Use this to create a function breakpoint by regex in containingModule/containingSourceFiles, or all modules if it is NULL
     // When "skip_prologue is set to eLazyBoolCalculate, we use the current target 
     // setting, else we use the values passed in
     lldb::BreakpointSP
     CreateFuncRegexBreakpoint (const FileSpecList *containingModules,
                                const FileSpecList *containingSourceFiles,
-                               RegularExpression &func_regexp,
+                               RegularExpression &func_regex,
                                LazyBool skip_prologue,
                                bool internal,
                                bool request_hardware);

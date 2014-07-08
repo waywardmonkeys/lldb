@@ -716,7 +716,7 @@ Symtab::AppendSymbolIndexesWithNameAndType (const ConstString& symbol_name, Symb
 
 
 uint32_t
-Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regexp, SymbolType symbol_type, std::vector<uint32_t>& indexes)
+Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regex, SymbolType symbol_type, std::vector<uint32_t>& indexes)
 {
     Mutex::Locker locker (m_mutex);
 
@@ -730,7 +730,7 @@ Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regexp
             const char *name = m_symbols[i].GetMangled().GetName().AsCString();
             if (name)
             {
-                if (regexp.Execute (name))
+                if (regex.Execute (name))
                     indexes.push_back(i);
             }
         }
@@ -740,7 +740,7 @@ Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regexp
 }
 
 uint32_t
-Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regexp, SymbolType symbol_type, Debug symbol_debug_type, Visibility symbol_visibility, std::vector<uint32_t>& indexes)
+Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regex, SymbolType symbol_type, Debug symbol_debug_type, Visibility symbol_visibility, std::vector<uint32_t>& indexes)
 {
     Mutex::Locker locker (m_mutex);
 
@@ -757,7 +757,7 @@ Symtab::AppendSymbolIndexesMatchingRegExAndType (const RegularExpression &regexp
             const char *name = m_symbols[i].GetMangled().GetName().AsCString();
             if (name)
             {
-                if (regexp.Execute (name))
+                if (regex.Execute (name))
                     indexes.push_back(i);
             }
         }

@@ -191,7 +191,7 @@ argument pair:
             startstr = "target.process.output-path (string) = 'stdout.txt'"
 
 Take a look at TestBase.expect() within lldbtest.py for more details.  Among
-other things, it can also match against a list of regexp patterns as well as a
+other things, it can also match against a list of regex patterns as well as a
 list of sub strings.  And it can also perform negative matching, i.e., instead
 of expecting something from the output of command execution, it can perform the
 action of 'not expecting' something.

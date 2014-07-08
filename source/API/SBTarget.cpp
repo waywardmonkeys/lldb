@@ -1267,7 +1267,7 @@ SBTarget::BreakpointCreateByRegex (const char *symbol_name_regex,
     if (target_sp && symbol_name_regex && symbol_name_regex[0])
     {
         Mutex::Locker api_locker (target_sp->GetAPIMutex());
-        RegularExpression regexp(symbol_name_regex);
+        RegularExpression regex(symbol_name_regex);
         const bool internal = false;
         const bool hardware = false;
         const LazyBool skip_prologue = eLazyBoolCalculate;
@@ -1277,11 +1277,11 @@ SBTarget::BreakpointCreateByRegex (const char *symbol_name_regex,
             FileSpecList module_spec_list;
             module_spec_list.Append (FileSpec (module_name, false));
 
-            *sb_bp = target_sp->CreateFuncRegexBreakpoint (&module_spec_list, NULL, regexp, skip_prologue, internal, hardware);
+            *sb_bp = target_sp->CreateFuncRegexBreakpoint (&module_spec_list, NULL, regex, skip_prologue, internal, hardware);
         }
         else
         {
-            *sb_bp = target_sp->CreateFuncRegexBreakpoint (NULL, NULL, regexp, skip_prologue, internal, hardware);
+            *sb_bp = target_sp->CreateFuncRegexBreakpoint (NULL, NULL, regex, skip_prologue, internal, hardware);
         }
     }
 
@@ -1305,12 +1305,12 @@ SBTarget::BreakpointCreateByRegex (const char *symbol_name_regex,
     if (target_sp && symbol_name_regex && symbol_name_regex[0])
     {
         Mutex::Locker api_locker (target_sp->GetAPIMutex());
-        RegularExpression regexp(symbol_name_regex);
+        RegularExpression regex(symbol_name_regex);
         const bool internal = false;
         const bool hardware = false;
         const LazyBool skip_prologue = eLazyBoolCalculate;
 
-        *sb_bp = target_sp->CreateFuncRegexBreakpoint (module_list.get(), comp_unit_list.get(), regexp, skip_prologue, internal, hardware);
+        *sb_bp = target_sp->CreateFuncRegexBreakpoint (module_list.get(), comp_unit_list.get(), regex, skip_prologue, internal, hardware);
     }
 
     if (log)
@@ -1356,7 +1356,7 @@ SBTarget::BreakpointCreateBySourceRegex (const char *source_regex,
     if (target_sp && source_regex && source_regex[0])
     {
         Mutex::Locker api_locker (target_sp->GetAPIMutex());
-        RegularExpression regexp(source_regex);
+        RegularExpression regex(source_regex);
         FileSpecList source_file_spec_list;
         const bool hardware = false;
         source_file_spec_list.Append (source_file.ref());
@@ -1366,11 +1366,11 @@ SBTarget::BreakpointCreateBySourceRegex (const char *source_regex,
             FileSpecList module_spec_list;
             module_spec_list.Append (FileSpec (module_name, false));
 
-            *sb_bp = target_sp->CreateSourceRegexBreakpoint (&module_spec_list, &source_file_spec_list, regexp, false, hardware);
+            *sb_bp = target_sp->CreateSourceRegexBreakpoint (&module_spec_list, &source_file_spec_list, regex, false, hardware);
         }
         else
         {
-            *sb_bp = target_sp->CreateSourceRegexBreakpoint (NULL, &source_file_spec_list, regexp, false, hardware);
+            *sb_bp = target_sp->CreateSourceRegexBreakpoint (NULL, &source_file_spec_list, regex, false, hardware);
         }
     }
 
@@ -1399,8 +1399,8 @@ SBTarget::BreakpointCreateBySourceRegex (const char *source_regex,
     {
         Mutex::Locker api_locker (target_sp->GetAPIMutex());
         const bool hardware = false;
-        RegularExpression regexp(source_regex);
-        *sb_bp = target_sp->CreateSourceRegexBreakpoint (module_list.get(), source_file_list.get(), regexp, false, hardware);
+        RegularExpression regex(source_regex);
+        *sb_bp = target_sp->CreateSourceRegexBreakpoint (module_list.get(), source_file_list.get(), regex, false, hardware);
     }
 
     if (log)
