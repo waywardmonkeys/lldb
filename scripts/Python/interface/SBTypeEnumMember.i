@@ -42,6 +42,7 @@ public:
     GetDescription (lldb::SBStream &description,
                     lldb::DescriptionLevel description_level);
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         __swig_getmethods__["name"] = GetName
         if _newclass: name = property(GetName, None, doc='''A read only property that returns the name for this enum member as a string.''')
@@ -55,6 +56,7 @@ public:
         __swig_getmethods__["unsigned"] = GetValueAsUnsigned
         if _newclass: unsigned = property(GetValueAsUnsigned, None, doc='''A read only property that returns the value of this enum member as a unsigned integer.''')
     %}
+#endif
 
 protected:
     friend class SBType;

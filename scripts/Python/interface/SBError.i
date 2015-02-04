@@ -102,7 +102,8 @@ public:
 
     bool
     GetDescription (lldb::SBStream &description);
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         __swig_getmethods__["value"] = GetError
         if _newclass: value = property(GetError, None, doc='''A read only property that returns the same result as GetError().''')
@@ -120,7 +121,7 @@ public:
         if _newclass: type = property(GetType, None, doc='''A read only property that returns the same result as GetType().''')
         
     %}
-
+#endif
 };
 
 } // namespace lldb

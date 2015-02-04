@@ -59,6 +59,7 @@ public:
     bool
     DumpEmulationForAllInstructions (const char *triple);
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __len__(self):
             '''Access len of the instruction list.'''
@@ -85,7 +86,7 @@ public:
                         closest_inst = inst
             return None        
     %}
-
+#endif
 };
 
 } // namespace lldb

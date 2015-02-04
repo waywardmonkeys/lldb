@@ -420,7 +420,8 @@ public:
     ) GetExpressionPath;
     bool
     GetExpressionPath (lldb::SBStream &description, bool qualify_cxx_base_classes);
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __get_dynamic__ (self):
             '''Helper function for the "SBValue.dynamic" property.'''
@@ -511,7 +512,7 @@ public:
         __swig_getmethods__["path"] = get_expr_path
         if _newclass: path = property(get_expr_path, None, doc='''A read only property that returns the expression path that one can use to reach this value in an expression.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

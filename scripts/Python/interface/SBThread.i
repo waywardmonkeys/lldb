@@ -329,6 +329,7 @@ public:
     bool
     SafeToCallFunctions ();
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         class frames_access(object):
             '''A helper object that will lazily hand out frames for a thread when supplied an index.'''
@@ -395,7 +396,7 @@ public:
         __swig_getmethods__["is_stopped"] = IsStopped
         if _newclass: is_stopped = property(IsStopped, None, doc='''A read only property that returns a boolean value that indicates if this thread is stopped but not exited.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

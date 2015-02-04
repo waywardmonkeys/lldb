@@ -82,7 +82,8 @@ public:
     
     bool
     operator != (const lldb::SBLineEntry &rhs) const;
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         __swig_getmethods__["file"] = GetFileSpec
         if _newclass: file = property(GetFileSpec, None, doc='''A read only property that returns an lldb object that represents the file (lldb.SBFileSpec) for this line entry.''')
@@ -100,7 +101,7 @@ public:
         if _newclass: end_addr = property(GetEndAddress, None, doc='''A read only property that returns an lldb object that represents the end address (lldb.SBAddress) for this line entry.''')
         
     %}
-
+#endif
 };
 
 } // namespace lldb

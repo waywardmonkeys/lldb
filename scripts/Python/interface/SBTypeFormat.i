@@ -60,7 +60,8 @@ namespace lldb {
 
         bool
         operator != (lldb::SBTypeFormat &rhs);
-        
+
+#ifdef SWIG_PYTHON
         %pythoncode %{
             __swig_getmethods__["format"] = GetFormat
             __swig_setmethods__["format"] = SetFormat
@@ -70,7 +71,7 @@ namespace lldb {
             __swig_setmethods__["options"] = SetOptions
             if _newclass: options = property(GetOptions, SetOptions)            
         %}
-
+#endif
     };
     
     

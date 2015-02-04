@@ -138,7 +138,8 @@ public:
 
     lldb::SBLineEntry
     GetLineEntry ();
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __get_load_addr_property__ (self):
             '''Get the load address for a lldb.SBAddress using the current target.'''
@@ -195,7 +196,7 @@ public:
         if _newclass: load_addr = property(__get_load_addr_property__, __set_load_addr_property__, doc='''A read/write property that gets/sets the SBAddress using load address. The setter resolves SBAddress using the SBTarget from lldb.target so this property can ONLY be used in the interactive script interpreter (i.e. under the lldb script command) and not in Python based commands, or breakpoint commands.''')
 
     %}
-
+#endif
 };
 
 } // namespace lldb

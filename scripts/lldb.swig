@@ -37,12 +37,14 @@ o SBLineEntry: Specifies an association with a contiguous range of instructions
 // Parameter types will be used in the autodoc string.
 %feature("autodoc", "1");
 
+#ifdef SWIG_PYTHON
 %pythoncode%{
 import uuid
 import re
 import os
 %}
 %include "./Python/python-typemaps.swig"
+#endif
 
 /* C++ headers to be included. */
 %{
@@ -108,7 +110,9 @@ import os
 #include "lldb/API/SBWatchpoint.h"
 #include "lldb/API/SBUnixSignals.h"
 
+#ifdef SWIG_PYTHON
 #include "../scripts/Python/python-swigsafecast.swig"
+#endif
 
 %}
 
@@ -183,6 +187,8 @@ import os
 %include "./Python/interface/SBWatchpoint.i"
 %include "./Python/interface/SBUnixSignals.i"
 
+#ifdef SWIG_PYTHON
 %include "./Python/python-extensions.swig"
 
 %include "./Python/python-wrapper.swig"
+#endif

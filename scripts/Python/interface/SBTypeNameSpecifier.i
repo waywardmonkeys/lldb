@@ -52,7 +52,8 @@ namespace lldb {
 
         bool
         operator != (lldb::SBTypeNameSpecifier &rhs);
-        
+
+#ifdef SWIG_PYTHON
         %pythoncode %{
             __swig_getmethods__["name"] = GetName
             if _newclass: name = property(GetName, None)
@@ -60,8 +61,7 @@ namespace lldb {
             __swig_getmethods__["is_regex"] = IsRegex
             if _newclass: is_regex = property(IsRegex, None)
         %}
-
-        
+#endif
     };
     
 } // namespace lldb

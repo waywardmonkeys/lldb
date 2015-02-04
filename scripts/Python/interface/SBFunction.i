@@ -94,7 +94,8 @@ public:
     
     bool
     operator != (const lldb::SBFunction &rhs) const;
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_instructions_from_current_target (self):
             return self.GetInstructions (target)
@@ -123,7 +124,7 @@ public:
         __swig_getmethods__["type"] = GetType
         if _newclass: type = property(GetType, None, doc='''A read only property that returns an lldb object that represents the return type (lldb.SBType) for this function.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

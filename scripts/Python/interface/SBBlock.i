@@ -103,6 +103,7 @@ public:
                    bool locals,
                    bool statics);
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_range_at_index(self, idx):
             if idx < self.GetNumRanges():
@@ -173,7 +174,7 @@ public:
         __swig_getmethods__["num_ranges"] = GetNumRanges
         if _newclass: num_ranges = property(GetNumRanges, None, doc='''A read only property that returns the same result as GetNumRanges().''')
     %}
-
+#endif
 };
 
 } // namespace lldb

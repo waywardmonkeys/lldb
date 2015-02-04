@@ -314,7 +314,8 @@ public:
              
     bool
     operator != (const lldb::SBModule &rhs) const;
-             
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         class symbols_access(object):
             re_compile_type = type(re.compile('.'))
@@ -518,7 +519,7 @@ public:
         if _newclass: num_sections = property(GetNumSections, None, doc='''A read only property that returns number of sections in the module as an integer.''')
         
     %}
-
+#endif
 };
 
 } // namespace lldb

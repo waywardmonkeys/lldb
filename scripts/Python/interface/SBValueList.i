@@ -96,10 +96,11 @@ public:
 
     lldb::SBValue
     FindValueObjectByUID (lldb::user_id_t uid);
-    
+
     lldb::SBValue
     GetFirstValueByName (const char* name) const;
     
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __len__(self):
             return int(self.GetSize())
@@ -135,8 +136,7 @@ public:
                 return matches
 
     %}
-
-
+#endif
 };
 
 } // namespace lldb

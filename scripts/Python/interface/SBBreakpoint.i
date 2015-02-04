@@ -241,7 +241,8 @@ public:
     
     static uint32_t
     GetNumBreakpointLocationsFromEvent (const lldb::SBEvent &event_sp);
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         
         __swig_getmethods__["id"] = GetID
@@ -259,8 +260,7 @@ public:
         if _newclass: num_locations = property(GetNumLocations, None, doc='''A read only property that returns the count of locations of this breakpoint.''')
 
     %}
-
-    
+#endif
 };
 
 } // namespace lldb

@@ -257,7 +257,8 @@ public:
 
     bool
     GetDescription (lldb::SBStream &description);
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_all_variables(self):
             return self.GetVariables(True,True,True,True)
@@ -371,6 +372,7 @@ public:
         if _newclass: reg = property(get_registers_access, None, doc='''A read only property that returns an helper object providing a flattened indexable view of the CPU registers for this stack frame''')
 
     %}
+#endif
 };
 
 } // namespace lldb

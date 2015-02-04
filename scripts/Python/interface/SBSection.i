@@ -112,7 +112,8 @@ public:
 
     bool
     operator != (const lldb::SBSection &rhs);
-     
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_addr(self):
             return SBAddress(self, 0)
@@ -145,6 +146,7 @@ public:
         if _newclass: target_byte_size = property(GetTargetByteSize, None, doc='''A read only property that returns the size of a target byte represented by this section as a number of host bytes.''')
 
     %}
+#endif
 
 private:
 

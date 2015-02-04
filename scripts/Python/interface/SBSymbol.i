@@ -67,7 +67,8 @@ public:
     
     bool
     operator != (const lldb::SBSymbol &rhs) const;
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_instructions_from_current_target (self):
             return self.GetInstructions (target)
@@ -99,9 +100,8 @@ public:
         __swig_getmethods__["synthetic"] = IsSynthetic
         if _newclass: synthetic = property(IsSynthetic, None, doc='''A read only property that returns a boolean value that indicates if this symbol was synthetically created from information in module that contains it.''')
 
-        
     %}
-
+#endif
 };
 
 } // namespace lldb

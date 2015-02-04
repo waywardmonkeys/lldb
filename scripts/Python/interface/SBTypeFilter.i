@@ -60,7 +60,8 @@ namespace lldb {
         
         bool
         operator != (lldb::SBTypeFilter &rhs);
-        
+
+#ifdef SWIG_PYTHON
         %pythoncode %{
             __swig_getmethods__["options"] = GetOptions
             __swig_setmethods__["options"] = SetOptions
@@ -69,7 +70,7 @@ namespace lldb {
             __swig_getmethods__["count"] = GetNumberOfExpressionPaths
             if _newclass: count = property(GetNumberOfExpressionPaths, None)
         %}
-                
+#endif
     };
 
 } // namespace lldb

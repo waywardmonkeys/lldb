@@ -72,7 +72,8 @@ public:
 
     bool
     GetDescription (lldb::SBStream &description) const;
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __get_fullpath__(self):
             spec_dir = self.GetDirectory()
@@ -97,7 +98,7 @@ public:
         __swig_getmethods__["exists"] = Exists
         if _newclass: exists = property(Exists, None, doc='''A read only property that returns a boolean value that indicates if the file exists.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

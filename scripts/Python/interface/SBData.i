@@ -133,6 +133,7 @@ public:
     bool
     SetDataFromDoubleArray (double* array, size_t array_len);
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         
         class read_data_helper:
@@ -334,7 +335,7 @@ public:
         if _newclass: size = property(GetByteSize, None, doc='''A read only property that returns the size the same result as GetByteSize().''')
         
     %}
-
+#endif
 };
 
 } // namespace lldb

@@ -59,6 +59,7 @@ public:
     int32_t
     GetSignalAtIndex (int32_t index) const;
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def get_unix_signals_list(self):
             signals = []
@@ -69,6 +70,7 @@ public:
         __swig_getmethods__["signals"] = get_unix_signals_list
         if _newclass: threads = property(get_unix_signals_list, None, doc='''A read only property that returns a list() of valid signal numbers for this platform.''')
     %}
+#endif
 };
 
 }  // namespace lldb

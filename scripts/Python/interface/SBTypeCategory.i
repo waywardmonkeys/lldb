@@ -114,7 +114,8 @@ namespace lldb {
         
         bool
         DeleteTypeSynthetic (lldb::SBTypeNameSpecifier);
-        
+
+#ifdef SWIG_PYTHON
         %pythoncode %{
             
             class formatters_access_class(object):
@@ -229,7 +230,7 @@ namespace lldb {
             __swig_setmethods__["enabled"] = SetEnabled
             if _newclass: enabled = property(GetEnabled, SetEnabled)
         %}
-
+#endif
     };
 
     

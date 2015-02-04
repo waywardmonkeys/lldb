@@ -79,8 +79,8 @@ public:
 
     bool
     GetDescription (lldb::SBStream &description);
-    
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         __swig_getmethods__["module"] = GetModule
         __swig_setmethods__["module"] = SetModule
@@ -106,7 +106,7 @@ public:
         __swig_setmethods__["line_entry"] = SetLineEntry
         if _newclass: line_entry = property(GetLineEntry, SetLineEntry, doc='''A read/write property that allows the getting/setting of the line entry (lldb.SBLineEntry) in this symbol context.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

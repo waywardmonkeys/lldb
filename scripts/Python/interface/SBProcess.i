@@ -395,6 +395,7 @@ public:
     bool
     IsInstrumentationRuntimePresent(lldb::InstrumentationRuntimeType type);
 
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __get_is_alive__(self):
             '''Returns "True" if the process is currently alive, "False" otherwise'''
@@ -490,7 +491,7 @@ public:
         __swig_getmethods__["broadcaster"] = GetBroadcaster
         if _newclass: broadcaster = property(GetBroadcaster, None, doc='''A read only property that an lldb object that represents the broadcaster (lldb.SBBroadcaster) for this process.''')
     %}
-
+#endif
 };
 
 }  // namespace lldb

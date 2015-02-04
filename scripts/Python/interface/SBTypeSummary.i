@@ -98,7 +98,8 @@ namespace lldb {
         
         bool
         operator != (lldb::SBTypeSummary &rhs);
-        
+
+#ifdef SWIG_PYTHON
         %pythoncode %{
             __swig_getmethods__["options"] = GetOptions
             __swig_setmethods__["options"] = SetOptions
@@ -116,7 +117,7 @@ namespace lldb {
             __swig_getmethods__["summary_data"] = GetData
             if _newclass: summary_data = property(GetData, None)
         %}
-        
+#endif
     };
 
 } // namespace lldb

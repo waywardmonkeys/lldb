@@ -59,7 +59,8 @@ public:
 
     void
     Clear();
-    
+
+#ifdef SWIG_PYTHON
     %pythoncode %{
         def __len__(self):
             return int(self.GetSize())
@@ -134,7 +135,7 @@ public:
         __swig_getmethods__["symbols"] = get_symbol_array
         if _newclass: symbols = property(get_symbol_array, None, doc='''Returns a list() of lldb.SBSymbol objects, one for each symbol in each SBSymbolContext object in this list.''')
     %}
-
+#endif
 };
 
 } // namespace lldb

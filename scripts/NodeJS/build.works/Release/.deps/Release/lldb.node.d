@@ -1,0 +1,1 @@
+cmd_Release/lldb.node := ./gyp-mac-tool flock ./Release/linker.lock c++ -bundle -Wl,-search_paths_first -mmacosx-version-min=10.8 -arch x86_64 -L./Release  -o Release/lldb.node Release/obj.target/lldb/lldb_wrap.o -undefined dynamic_lookup -F /Applications/Xcode.app//Contents/SharedFrameworks/ -framework LLDB
