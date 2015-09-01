@@ -667,6 +667,10 @@
 		3FDFED2919BA6D96009756A7 /* ThreadLauncher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFED2619BA6D96009756A7 /* ThreadLauncher.cpp */; };
 		3FDFED2D19C257A0009756A7 /* HostProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFED2C19C257A0009756A7 /* HostProcess.cpp */; };
 		449ACC98197DEA0B008D175E /* FastDemangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 449ACC96197DE9EC008D175E /* FastDemangle.cpp */; };
+		325ACBD11966EBF700FDE90C /* OpenDylanLanguageRuntime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 325ACBCE1966EBF700FDE90C /* OpenDylanLanguageRuntime.cpp */; };
+		325ACBD21966EBF700FDE90C /* OpenDylanLanguageRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 325ACBCF1966EBF700FDE90C /* OpenDylanLanguageRuntime.h */; };
+		325ACBD41966EC4F00FDE90C /* DylanLanguageRuntime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 325ACBD31966EC4F00FDE90C /* DylanLanguageRuntime.cpp */; };
+		325ACBD61966EC9600FDE90C /* DylanLanguageRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 325ACBD51966EC9600FDE90C /* DylanLanguageRuntime.h */; };
 		490A36C0180F0E6F00BA31F8 /* PlatformWindows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490A36BD180F0E6F00BA31F8 /* PlatformWindows.cpp */; };
 		490A966B1628C3BF00F0002E /* SBDeclaration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9452573816262CEF00325455 /* SBDeclaration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		494260DA14579144003C1C78 /* VerifyDecl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 494260D914579144003C1C78 /* VerifyDecl.cpp */; };
@@ -2234,6 +2238,10 @@
 		3FDFED2619BA6D96009756A7 /* ThreadLauncher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadLauncher.cpp; sourceTree = "<group>"; };
 		3FDFED2C19C257A0009756A7 /* HostProcess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HostProcess.cpp; sourceTree = "<group>"; };
 		449ACC96197DE9EC008D175E /* FastDemangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FastDemangle.cpp; path = source/Core/FastDemangle.cpp; sourceTree = "<group>"; };
+		325ACBCE1966EBF700FDE90C /* OpenDylanLanguageRuntime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenDylanLanguageRuntime.cpp; sourceTree = "<group>"; };
+		325ACBCF1966EBF700FDE90C /* OpenDylanLanguageRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenDylanLanguageRuntime.h; sourceTree = "<group>"; };
+		325ACBD31966EC4F00FDE90C /* DylanLanguageRuntime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DylanLanguageRuntime.cpp; path = source/Target/DylanLanguageRuntime.cpp; sourceTree = "<group>"; };
+		325ACBD51966EC9600FDE90C /* DylanLanguageRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DylanLanguageRuntime.h; path = include/lldb/Target/DylanLanguageRuntime.h; sourceTree = "<group>"; };
 		4906FD4012F2255300A2A77C /* ASTDumper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ASTDumper.cpp; path = source/Expression/ASTDumper.cpp; sourceTree = "<group>"; };
 		4906FD4412F2257600A2A77C /* ASTDumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASTDumper.h; path = include/lldb/Expression/ASTDumper.h; sourceTree = "<group>"; };
 		490A36BD180F0E6F00BA31F8 /* PlatformWindows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlatformWindows.cpp; sourceTree = "<group>"; };
@@ -4583,6 +4591,8 @@
 				497E7B9D1188F6690065CCA1 /* ABI.cpp */,
 				4CB443BB1249920C00C13DC2 /* CPPLanguageRuntime.h */,
 				4CB443BC1249920C00C13DC2 /* CPPLanguageRuntime.cpp */,
+				325ACBD51966EC9600FDE90C /* DylanLanguageRuntime.h */,
+				325ACBD31966EC4F00FDE90C /* DylanLanguageRuntime.cpp */,
 				26BC7DF110F1B81A00F91463 /* DynamicLoader.h */,
 				26BC7E7710F1B85900F91463 /* DynamicLoader.cpp */,
 				26BC7DF210F1B81A00F91463 /* ExecutionContext.h */,
@@ -5036,6 +5046,23 @@
 			name = windows;
 			sourceTree = "<group>";
 		};
+		325ACBC91966EBF700FDE90C /* Dylan */ = {
+			isa = PBXGroup;
+			children = (
+				325ACBCB1966EBF700FDE90C /* OpenDylan */,
+			);
+			path = Dylan;
+			sourceTree = "<group>";
+		};
+		325ACBCB1966EBF700FDE90C /* OpenDylan */ = {
+			isa = PBXGroup;
+			children = (
+				325ACBCE1966EBF700FDE90C /* OpenDylanLanguageRuntime.cpp */,
+				325ACBCF1966EBF700FDE90C /* OpenDylanLanguageRuntime.h */,
+			);
+			path = OpenDylan;
+			sourceTree = "<group>";
+		};
 		490A36BA180F0E6F00BA31F8 /* Windows */ = {
 			isa = PBXGroup;
 			children = (
@@ -5075,6 +5102,7 @@
 			isa = PBXGroup;
 			children = (
 				49724D961AD6ECFA0033C538 /* RenderScript */,
+				325ACBC91966EBF700FDE90C /* Dylan */,
 				4CCA643B13B40B82003BDF98 /* CPlusPlus */,
 				4CCA644013B40B82003BDF98 /* ObjC */,
 			);
@@ -6133,6 +6161,7 @@
 				2689001713353DDE00698AC0 /* CommandObjectDisassemble.cpp in Sources */,
 				2689001813353DDE00698AC0 /* CommandObjectExpression.cpp in Sources */,
 				2689001A13353DDE00698AC0 /* CommandObjectFrame.cpp in Sources */,
+				325ACBD11966EBF700FDE90C /* OpenDylanLanguageRuntime.cpp in Sources */,
 				2689001B13353DDE00698AC0 /* CommandObjectHelp.cpp in Sources */,
 				23F4034D1926E0F60046DC9B /* NativeRegisterContextRegisterInfo.cpp in Sources */,
 				964463EC1A330C0500154ED8 /* CompactUnwindInfo.cpp in Sources */,

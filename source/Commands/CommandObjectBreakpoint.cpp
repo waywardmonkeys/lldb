@@ -187,6 +187,9 @@ public:
                         case eLanguageTypeObjC_plus_plus:
                             error.SetErrorStringWithFormat ("Set exception breakpoints separately for c++ and objective-c");
                             break;
+                        case eLanguageTypeDylan:
+                            m_language = eLanguageTypeDylan;
+                            break;
                         case eLanguageTypeUnknown:
                             error.SetErrorStringWithFormat ("Unknown language type: '%s' for exception breakpoint", option_arg);
                             break;

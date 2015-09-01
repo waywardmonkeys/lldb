@@ -83,6 +83,7 @@ class   Debugger;
 class   Declaration;
 class   Disassembler;
 struct  DumpValueObjectOptions;
+class   DylanLanguageRuntime;
 class   DynamicCheckerFunctions;
 class   DynamicLoader;
 class   Editline;
